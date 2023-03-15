@@ -173,8 +173,12 @@ def is_valid_date(d):
 
 def age(d):
     '''Requires a valid date'''
-    delta = date.today() - date.fromisoformat(d)
-    return delta.days
+    if not is_valid_date(d):
+        return -1
+    else:
+        delta = date.today() - date.fromisoformat(d)
+        return delta.days
+
 
 
 def bytes_to_mb(bytes):
